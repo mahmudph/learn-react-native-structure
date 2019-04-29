@@ -1,0 +1,25 @@
+{
+  "name": "reportingapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "metro-react-native-babel-preset": "^0.53.1",
+    "react": "^16.8.3",
+    "react-native": "^0.59.5",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-get-location": "^1.2.0",
+    "react-native-image-crop-picker": "^0.24.0",
+    "react-navigation": "^3.9.1",
+    "react-test-renderer": "^16.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
