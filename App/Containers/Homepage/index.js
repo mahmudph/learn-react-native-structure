@@ -7,11 +7,15 @@ import { allLogo } from '@Assets'
 const { width, height } = Dimensions.get('window')
 import { toDp } from '@percentageToDP'
 import Home from './Home'
+import Profile from './Profile'
+import Maps from './Maps'
+
 type Props = {}
 
-export default class Homepage extends Component<Props> {
+export default class Homepage extends Component {
     constructor(props) {
         super(props);
+        console.disableYellowBox =true
         this.state = {
             nav: this.props.navigation.getParam('nav', 'home'),
         }
@@ -20,13 +24,13 @@ export default class Homepage extends Component<Props> {
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Text allowFontScaling={false} style={styles.textTitle}>{'Nama Aplikasi'}</Text>
+                    <Text allowFontScaling={false} style={styles.textTitle}>{'Re[prtingApp'}</Text>
                 </View>
                 <View style={styles.content}>
                     {
-                        this.state.nav === 'home' ? <Home /> :
-                            this.state.nav === 'maps' ? <View /> :
-                                <View />
+                        this.state.nav === 'home' ? <Home navigation={this.props.navigation} /> :
+                            this.state.nav === 'maps' ? <Maps navigation={this.props.navigation}/> :
+                                <Profile navigation={this.props.navigation}  />
                     }
                 </View>
                 <View style={styles.footer}>
@@ -40,23 +44,23 @@ export default class Homepage extends Component<Props> {
                                 '#212121'
                         }]}>{'Home'}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.setState({ nav: 'inbox' })} style={styles.touchFooter}>
+                    <TouchableOpacity onPress={() => this.setState({ nav: 'maps' })} style={styles.touchFooter}>
                         <Image source={allLogo.icMaps} style={[styles.icMenuFooter, {
-                            tintColor: this.state.nav === 'inbox' ? '#2F5596' :
+                            tintColor: this.state.nav === 'maps' ? '#2F5596' :
                                 '#424242'
                         }]} />
                         <Text allowFontScaling={false} style={[styles.textFooter, {
-                            color: this.state.nav === 'inbox' ? '#2F5596' :
+                            color: this.state.nav === 'maps' ? '#2F5596' :
                                 '#212121'
                         }]}>{'Maps'}</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.setState({ nav: 'account' })} style={styles.touchFooter}>
+                    <TouchableOpacity onPress={() => this.setState({ nav: 'Profile' })} style={styles.touchFooter}>
                         <Image source={allLogo.icProfile} style={[styles.icMenuFooter, {
-                            tintColor: this.state.nav === 'account' ? '#2F5596' :
+                            tintColor: this.state.nav === 'Profile' ? '#2F5596' :
                                 '#424242'
                         }]} />
                         <Text allowFontScaling={false} style={[styles.textFooter, {
-                            color: this.state.nav === 'account' ? '#2F5596' :
+                            color: this.state.nav === 'profile' ? '#2F5596' :
                                 '#212121'
                         }]}>{'Profile'}</Text>
                     </TouchableOpacity>
@@ -64,7 +68,9 @@ export default class Homepage extends Component<Props> {
             </View>
         )
     }
-} const styles = StyleSheet.create({
+} 
+
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',

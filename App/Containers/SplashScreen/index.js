@@ -6,9 +6,9 @@ import {AsyncStorage} from 'react-native';
 
 
 type Props = {}
-export default class SplashScreen extends Component<Props> {
+export default class SplashScreen extends Component{
 
-  componentWillMount(): void {
+  componentWillMount(){
     setTimeout(()=>{
       AsyncStorage.getItem('dataUser', (err, result) => {
         if(result === null) {

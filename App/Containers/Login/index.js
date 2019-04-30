@@ -11,7 +11,7 @@ import md5 from '../../Helper/md5';
 
 const {width, height} = Dimensions.get('window')
 type Props = {}
-export default class Login extends Component<Props> {
+export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,7 +28,7 @@ export default class Login extends Component<Props> {
             formData.append('password', md5.hex_md5(password))
             postLogin(formData).then(respon => {
                 this.setState({loading : false});
-                if(respon.data.length === 0) {
+                if(respon.data.length == 0) {
                     Alert.alert(
                         'gagal masuk',
                         'emaill pasword salah',

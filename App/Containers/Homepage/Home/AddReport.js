@@ -34,20 +34,24 @@ class AddReport extends Component {
 
         GetLocation.getCurrentPosition({
             enableHighAccuracy: true,
-            timeout: 15000,
+            timeout: 30000,
         })
             .then(location => {
                 console.log(location);
                 console.log('berhasil yes')
                 this.setState({
-                    latitude: location.latitude,
-                    longitude: location.longitude
+                    latitude: location.coords.latitude,
+                    longitude: location.coords.longitude
                 })
             })
             .catch(error => {
-              console.log('gagal mencari lokasi disini')
-                const { code, message } = error;
-                console.warn(code, message);
+
+                // make default location
+                this.setState({
+                    latitude: '2.9549663',
+                    longitude: '104.6929237'
+                })
+  
             })
 
     }
